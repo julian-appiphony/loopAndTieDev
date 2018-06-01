@@ -1,0 +1,5 @@
+force-app/main/default/flexipages
+package-lock.json
+package.json
+node_modules/
+.sfdx/
