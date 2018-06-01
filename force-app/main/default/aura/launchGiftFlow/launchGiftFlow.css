@@ -1,0 +1,17 @@
+.THIS.slds-card {
+    overflow: hidden;
+    background-color: rgb(243, 242, 242);
+}
+
+.THIS .loopAndTie-component-image {
+    height: 180px;
+    position: absolute;
+    left: -20px;
+    top: -20px
+}
+
+.THIS .loopAndTie-image-logo {
+    width: 120px;
+    display: block;
+    
+}

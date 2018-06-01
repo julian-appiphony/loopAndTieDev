@@ -1,0 +1,20 @@
+<aura:component implements="flexipage:availableForAllPageTypes,force:hasRecordId" access="global">
+    <aura:attribute name="componentLogo" type="String" default="{!$Resource.loopAndTieLogo}"/>
+
+    <aura:handler name="init" value="{!this}" action="{!c.init}"/>
+    <aura:handler name="render" value="{!this}" action="{!c.render}"/>
+
+    <div class="slds-container slds-container_fluid slds-card">
+        <div class="slds-grid slds-grid_pull-padded-medium slds-grid_vertical-align-center slds-grid_align-spread slds-p-around_large">
+            <div class="slds-col slds-grow-none slds-p-horizontal_medium">
+                <img class="loopAndTie-component-image" src="https://d2g0unjhwtexh1.cloudfront.net/assets/marketing/ampersand-blue-6db95beccb8360c9a81663902c240067f326b9482d05cbb62e53c2ee0eba5079.svg" />
+            </div>
+            <div class="slds-col slds-grow-none slds-p-horizontal_medium slds-text-align_center">
+                <img class="loopAndTie-image-logo" src="https://d2g0unjhwtexh1.cloudfront.net/assets/marketing/2016/loop-and-tie-logo-black-20b378db1c8a1d1ccf4d6dbdde365dd6c34c650d94b55448d9e6ee3b999ac8c3.svg"/>
+                <button onclick="{!c.handleSendGiftClick}" class="slds-button slds-button_neutral slds-m-around_medium">
+                    Send Gift
+                </button>
+            </div>
+        </div>
+    </div>
+</aura:component>

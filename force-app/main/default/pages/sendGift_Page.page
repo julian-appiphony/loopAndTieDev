@@ -1,0 +1,27 @@
+<apex:page sidebar="false">
+    <apex:slds />
+    <style></style>
+    <apex:includeLightning />
+
+    <div id="sendGift"/>
+
+    <script type="text/javascript">
+        var recordId = '{!JSEncode($CurrentPage.parameters.id)}';
+        $Lightning.use("c:lightningOutApp", function(){
+            $Lightning.createComponent('c:sendGift',
+            {
+                recordId: recordId
+            }, 
+            "sendGift",
+            function(cmp){
+                $A.eventService.addHandler({'event': 'force:navigateToSObject', 'handler' : navigate});
+            });
+        });
+
+        var navigate = function(event) {
+            var recordId = event.getParam('recordId');
+            var url = window.location.origin + '/' + recordId;
+            window.open(url, '_top');
+        };
+    </script>
+</apex:page>

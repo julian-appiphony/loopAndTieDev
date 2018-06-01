@@ -1,0 +1,102 @@
+<aura:component implements="flexipage:availableForAllPageTypes,force:hasRecordId" access="global">
+    
+    <aura:attribute name="activeStep" type="Integer" default="{!0}"/>
+    <aura:attribute name="initialStep" type="Integer" default="{!0}"/>
+    <aura:attribute name="steps" type="Object[]" description="Object of steps in gift process"/>
+    <aura:attribute name="totalSteps" type="Integer"/>
+    <aura:attribute name="progressPercent" type="Decimal" default="{!0}"/>
+    <aura:attribute name="stepHeader" type="String" default="Select Recipients"/>
+    <aura:attribute name="recordId" type="Id"/>
+
+    <aura:handler name="init" value="{!this}" action="{!c.init}"/>
+
+    <div class="slds-container slds-container_fluid">
+        <div class="slds-container slds-container_fluid slds-container_center wizard-header    slds-p-around_large slds-border_bottom">
+            <!-- Header -->
+            <h1 class="slds-text-heading_large slds-text-align_center">
+                {!v.stepHeader}
+            </h1>
+            <div class="slds-grid slds-grid_pull-padded-medium slds-p-around_medium">
+                <div class="slds-col slds-grow-none slds-p-horizontal_medium">
+                </div>
+                <div class="slds-col slds-p-horizontal_medium">
+                    <div class="slds-progress">
+                        <ol class="slds-progress__list">
+                            <aura:iteration items="{!v.steps}" var="step" indexVar="index">
+                                <li class="{!'slds-progress__item' + if(v.activeStep == index, ' slds-is-active','')}">
+                                    <button class="slds-button slds-progress__marker">
+                                        <span class="slds-assistive-text">
+                                            {!step.label}
+                                        </span>
+                                    </button>
+                                    <div class="wizard-progress__step-title slds-text-color_weak">
+                                        {!step.label}
+                                    </div>
+                                </li>
+                            </aura:iteration>
+                        </ol>
+                        <div class="slds-progress-bar slds-progress-bar_x-small" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" role="progressbar">
+                            <span class="slds-progress-bar__value" style="{!'width: ' + v.progressAmount + '%'}">
+                                <span class="slds-assistive-text">
+                                    Progress: {!v.progressPercent}%
+                                </span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-col slds-grow-none slds-p-horizontal_medium">
+                </div>
+            </div>
+        </div>
+        <!--/Header -->
+        <!-- Content -->
+        <div class="slds-container slds-container_medium slds-container_center slds-p-around_medium slds-m-vertical_large slds-card">
+            <aura:if isTrue="{!v.activeStep lt 4}">
+                <!-- Search/ Add Recipients -->
+                <aura:if isTrue="{!v.activeStep == 0}">
+                    <c:selectRecipients />
+                </aura:if>
+                <!-- /Search/ Add Recipients -->
+                <!-- Select Gift Collection -->
+                <aura:if isTrue="{!v.activeStep == 1}">
+                    <c:selectGiftCollection />
+                </aura:if>
+                <!-- /Select Gift Collection -->
+                <!-- Customize Message -->
+                <aura:if isTrue="{!v.activeStep == 2}">
+                    <c:customizeMessage />
+                </aura:if>
+                <!-- /Customize Message -->
+                <!-- Review  Send-->
+                <aura:if isTrue="{!v.activeStep == 3}">
+                    <c:review />
+                </aura:if>
+                <!-- /Review  Send -->
+            </aura:if>
+             <!-- Confirmation -->
+            <aura:if isTrue="{!v.activeStep == v.totalSteps}">
+                <c:confirmation />
+            </aura:if>
+            <!-- /Confirmation -->
+        </div>
+        <!--/Content -->
+    </div>
+    <!-- Footer -->
+    <div class="slds-grid slds-grid_pull-padded-none wizard-footer   slds-p-around_large slds-border_top">
+        <div class="slds-col slds-p-horizontal_none">
+            <lightning:button 
+                onclick="{!c.handlePreviousClick}" 
+                class="slds-button slds-button_neutral" 
+                label="{!if(v.activeStep == v.initialStep, 'Cancel', 'Previous')}"
+            />
+        </div>
+        <div class="slds-col slds-p-horizontal_none slds-grow-none">
+                <lightning:button 
+                    onclick="{!c.handleNextClick}" 
+                    class="slds-button slds-button_brand" 
+                    label="{!if(v.activeStep == 3, 'Send', 'Next')}"
+                />
+        </div>
+    </div>
+    <!-- /Footer -->
+</aura:component>

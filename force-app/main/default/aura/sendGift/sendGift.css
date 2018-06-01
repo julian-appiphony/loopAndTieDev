@@ -1,0 +1,23 @@
+.THIS .wizard-footer {
+            background-color: rgb(255,255,255);
+}
+
+.THIS .wizard-footer {
+            position: absolute;
+            z-index: 1;
+            bottom: 0;
+            width: 100%;
+}
+
+.THIS .slds-progress__item {
+            position: relative;
+            overflow: visibile;
+            white-space: nowrap;
+}
+
+.THIS .wizard-progress__step-title {
+            position: absolute;
+            bottom: -1.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+}

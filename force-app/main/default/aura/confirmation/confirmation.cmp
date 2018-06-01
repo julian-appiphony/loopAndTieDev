@@ -1,0 +1,75 @@
+<aura:component implements="flexipage:availableForAllPageTypes,force:hasRecordId" access="global">
+    <div class="slds-container slds-container_fluid">
+    <div class="slds-container slds-container_medium slds-container_center slds-card slds-p-around_medium slds-m-top_large slds-m-bottom_large">
+        
+        <!-- Status Banner -->
+        <div class="slds-text-align_center slds-p-top_medium">
+            <h1 class="slds-text-heading_large slds-text-color_success">Your Gift Has Been Sent!</h1>
+        </div>
+        <!-- /Status Banner -->
+        
+         <!-- Created Records -->
+         <div class="slds-border_bottom slds-m-top_x-large slds-m-bottom_medium">
+             <h3 class="slds-text-title_caps">Created Records</h3>
+         </div>
+         <table class="slds-table slds-table_bordered slds-table_cell-buffer">
+             <thead>
+                <tr class="slds-text-title_caps">
+                    <th scope="col">
+                        <div class="slds-truncate" title="Opportunity Name">Gift Record</div>
+                    </th>
+                    <th scope="col">
+                        <div class="slds-truncate" title="Opportunity Name">Gift ID</div>
+                    </th>
+                    <th scope="col">
+                        <div class="slds-truncate" title="Account Name">Recipient Name</div>
+                    </th>
+                    <th scope="col">
+                        <div class="slds-truncate" title="Close Date">Recipient Email</div>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <div class="slds-truncate" title=""><a href="javascript:void(0);">G-001</a></div>
+                    </td>
+                    <td>
+                        <div class="slds-truncate" title=""><a href="javascript:void(0);">LT-026</a></div>
+                    </td>
+                    <td>
+                        <div class="slds-truncate" title=""><a href="javascript:void(0);">Robert Rogers</a></div>
+                    </td>
+                    <td>
+                        <div class="slds-truncate" title="">rrogers@edge.com</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="slds-truncate" title=""><a href="javascript:void(0);">G-002</a></div>
+                    </td>
+                    <td>
+                        <div class="slds-truncate" title=""><a href="javascript:void(0);">LT-027</a></div>
+                    </td>
+                    <td>
+                        <div class="slds-truncate" title=""><a href="javascript:void(0);">Rose Gonzalez</a></div>
+                    </td>
+                    <td>
+                        <div class="slds-truncate" title="">rgonzalez@edge.com</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <!-- /Created Records -->
+        
+        <!-- Preview Link -->
+            <div class="slds-text-align_center slds-m-top_x-large">
+                <button onclick="" target="_blank" class="slds-button slds-button_brand">
+                    Preview Gift
+                </button>
+            </div>
+        <!-- /Preview Link -->
+        
+    </div>
+</div>
+</aura:component>
